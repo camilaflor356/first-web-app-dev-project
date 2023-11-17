@@ -5,17 +5,21 @@ function f1(n,x) {return x+n;}
 function addN(n,x) {
     return f1(n,x);
 }
-console.log(addN(n,x));
+console.log(addN(2,3));
 
 
 //1
 const foo1= (str) => str.toLowerCase();
+
+console.log(foo1("HELLO"));
 
 //2
 //Write an arrow function that takes a string prefix and returns another function that prepends prefix to its parameter.
 //I don't really understand where the parameter is supposed to come from
 const prepender = (prefix, string) => {return prefix + string;}
 const foo2 = (prefix, string) => {return prepender(prefix, string)}
+
+console.log(foo2("re", "do"));
 
 //3
 //Write an arrow function that takes a string prefix and returns a function that takes a string postfix that returns another function that takes a string and returns correctly prepends/appends the pre/postfix to its parameter.
@@ -31,6 +35,8 @@ function post(postfix) {
 const foo3 = (prefix, postfix, string) => {
     return post(postfix);
 }
+
+console.log(foo3("he","rsh","ey"));
 
 //4
 //Write a function that maps number grades to letter grades
@@ -54,3 +60,35 @@ function converter(grade) {
     }
     }
 
+    console.log(converter("78"));
+
+//5
+
+let arrays = [[1, 2, 3], [4, 5], [6]];
+function flat(array) {
+    return array.reduce(
+        (accumulator, currentValue) => accumulator.concat(currentValue), []);
+}
+
+console.log(flat(arrays));
+
+//6
+const initalValue=0;
+function every(array, test) {
+    const addition = array.reduce(
+        (accumulator, currentValue) => accumulator + currentValue,
+        initialValue);
+    if (addition =! test) {
+        return False;
+    }
+    else {
+        return true;
+    }
+  }
+  
+  console.log(every([1, 3, 5], n => n < 10));
+  // → true
+  console.log(every([2, 4, 16], n => n < 10));
+  // → false
+  console.log(every([], n => n < 10));
+  // → true
